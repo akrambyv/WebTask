@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        table { border-collapse: collapse; margin: auto}
+        td { width: 100px; height: 100px; border: 1px solid #333; 
+             text-align: center; font-size: 2em;}
+    </style>
+</head>
+<body>
+    <table id="cdv"></table>
+
+    <script>
+        const cdv = document.querySelector("#cdv")
+        let kod = ''
+        const arr = ['']
+        let bos = []
+
+        for (let i = 1; i <= 15; i++) arr.push(i)
+        arr.sort( function(a, b) {return rnd(-1, 0)} )
+
+        for (let i = 0; i < 4; i++) {
+                kod += '<tr>'
+                for (let j = 0; j < 4; j++) {
+                    kod += `<td id="x${i}${j}" onclick="swap(${i}, ${j})">${arr[4 * i + j]}</td>`
+                    if ( arr[4 * i + j] == '' ) bos = [i, j]
+                }
+                kod += '</tr>'
+            }
+
+            cdv.innerHTML = kod
+
+            function swap(i, j) {
+                let cariTd = document.getElementById(`x${i}${j}`)
+                let bosTd = document.getElementById(`x${bos[0]}${bos[1]}`)
+                if (i == bos[0] && Math.abs(j - bos[1]) == 1 ||
+                    j == bos[1] && Math.abs(i - bos[0]) == 1) {
+                    bosTd.innerHTML = cariTd.innerHTML
+                    cariTd.innerHTML = ''
+                    bos = [i, j]
+                }
+            }
+
+            function rnd(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) ) + min;
+            }
+    </script>
+</body>
+</html>

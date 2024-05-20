@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            input { width: 40px; text-align: right;}
+        </style>
+    </head>
+    <body>
+        <input type="text" id="b" /> /
+        <input type="text" id="q" /> 
+        <button onclick="bol()"> = </button>
+        <span id="c"></span>
+
+        <script>
+            const b = document.getElementById("b")
+            const q = document.getElementById("q")
+            const c = document.getElementById("c")
+
+            function bol() {
+                // 16 / 3 = 5 qaliq 1
+                qaliq = b.value % q.value
+                // bolum = (b.value - qaliq) / q.value
+                bolum = Math.trunc(b.value / q.value)
+                
+                // c.innerHTML = bolum + ', qaliq ' + qaliq 
+                c.innerHTML = `${bolum}, qaliq ${qaliq}`
+            }            
+        </script>
+    </body>
+</html>

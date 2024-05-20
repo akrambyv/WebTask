@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <select onchange="go()" id="n"></select>
+    <div id="inp"></div>
+    <button onclick="sum()">+</button>
+    <button onclick="avg()">E.O.</button>
+    <p id="res"></p>
+
+    <script>
+        const n = document.querySelector("#n")
+        const inp = document.querySelector("#inp")
+        const res = document.querySelector("#res")
+
+
+        for (let i = 2; i <= 10; i++) {
+            n.innerHTML += `<option>${i}</option>`
+        }
+
+        function go() {
+            kod = ''
+            for (let i = 0; i < n.value; i++) {
+                kod += `<p><input type="number" max="100"></p>`
+            }
+            inp.innerHTML = kod
+        }
+
+        function avg() {
+            res.innerHTML = "Ededi orta: " + sum() / n.value
+        }
+
+        function sum() {
+            let inparr = inp.querySelectorAll("input")
+            let s = 0
+            for (let i = 0; i < inparr.length; i++) {
+                s += +inparr[i].value                
+            }       
+            res.innerHTML = "Cem: " + s
+            return s
+        }
+    </script>
+</body>
+</html>

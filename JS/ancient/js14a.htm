@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{ margin: 0; height: 100vh; overflow: hidden; }
+        #bahar{ position: relative; background: url('/img/sakura.jpg') center/cover; width: 100%; height: 100%;}
+        #bahar > * { position: absolute; }
+    </style>
+</head>
+<body>
+    <div id="bahar">
+        <!-- <div id="flower">🌸</div> -->
+    </div>
+
+    <script>
+        const bahar = document.querySelector("#bahar")
+        let cicek = []
+
+        setInterval(create, 100)
+
+        setInterval(flow, 10)
+
+        function create() {
+            let i = cicek.length
+            bahar.innerHTML += `<div id="f${i}">💧</div>`
+            let top = 0
+            let left = rnd(0, window.innerWidth)
+            cicek[i] = [`f${i}`, top, left]
+            show(i)
+        }
+
+        function show(i) {
+            let elem = document.getElementById(cicek[i][0])
+            elem.style.top = cicek[i][1] + 'px'
+            elem.style.left = cicek[i][2] + 'px'
+        }
+
+        function flow() {
+            for (let i = 0; i < cicek.length; i++) {
+                cicek[i]
+                if (cicek[i][1] < window.innerHeight){
+                    cicek[i][1] += 3
+                    show(i)
+                }
+            }
+        }
+
+        function rnd(min, max) {
+             return Math.floor(Math.random() * (max - min + 1) ) + min;
+        }
+    </script>
+</body>
+</html>

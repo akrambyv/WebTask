@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="cumle" />
+    <input type="text" id="herf" />
+    <button>Say</button>
+    <span></span>
+    <br />
+    <input type="text" id="k" />
+    <button onclick="zad()">Ok</button>
+
+    <script>
+        const cumle = document.querySelector("#cumle")
+        const herf = document.querySelector("#herf")
+        const btn = document.querySelector("button")
+        const ntc = document.querySelector("span")
+        const k = document.querySelector("#k")
+
+        btn.onclick = function() {
+            let n = 0
+            let pos = 0.1
+            
+            while(pos > -1){
+                pos = cumle.value.indexOf(herf.value, pos + 1)
+                if ( pos > -1 ) n++
+            }
+            
+            ntc.innerHTML = n
+        }
+
+
+        function zad() {
+            let kod = ''
+            for (let i = 0; i <= 10; i++) {
+                kod += (i == k.value) ? 'ok' : i
+                kod += '<br />'
+            }
+            div.innerHTML = kod
+        }
+
+    </script>
+</body>
+</html>

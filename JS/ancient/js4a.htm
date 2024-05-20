@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+    <body>
+        <input id="il" type="number" min="1600" max="2100" />
+        <button onclick="teyinEt()">Ok</button>
+        <h1 id="msj"></h1>
+
+        <script>
+            const il = document.getElementById("il")
+            const msj = document.getElementById("msj")
+
+            function teyinEt() {
+                let year = il.value
+                let txt = ( year % 4 == 0 && 
+                            year % 100 || 
+                            year % 400 == 0 && 
+                            year % 4000 ) ? "" : " deyil"
+                msj.innerHTML = `${year} - uzun il${txt}dir`
+            }
+        </script>
+    </body>
+</html>

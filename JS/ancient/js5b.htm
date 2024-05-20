@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            input { width: 40px; text-align: right;}
+        </style>
+    </head>
+    <body>
+        <input type="number" id="fkt" /> !
+        <button onclick="go()"> = </button>
+        <span id="ntc"></span>
+
+        <script>
+            const fkt = document.getElementById("fkt")
+            const ntc = document.getElementById("ntc")
+
+            function go() {
+                let kod = '1'
+                let fakt = 1
+
+                for(let i = 2; i <= fkt.value; i++) {
+                    kod += ' x ' + i
+                    fakt *= i
+                }
+
+                ntc.innerHTML = kod + ' = ' + fakt
+            }
+        </script>
+    </body>
+</html>

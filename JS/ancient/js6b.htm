@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            #cdv { border-collapse: collapse;}
+            td { font-size: 2em; width: 50px; height: 50px; text-align: center; }
+            #n { width: 30px;}
+            .black { background: orange }
+            .white { background: yellow }
+        </style>
+    </head>
+    <body>
+        <select id="letter"></select>
+        <select id="number"></select>
+        <button onclick="go()">Go</button>
+        <table id="cdv"></table>
+
+        <script>
+            const letter = document.getElementById("letter")
+            const number = document.getElementById("number")
+            const cdv = document.getElementById("cdv")
+            let abc = ' ABCDEFGH'
+
+            for (let i = 1; i <= 8; i++) {
+                number.innerHTML += `<option>${i}</option>`
+                letter.innerHTML += `<option value="${i}">${abc[i]}</option>`
+            }
+
+            go(1, 2)
+            
+            function go(r = +number.value, c = +letter.value) {
+                let kod = ''
+                for(let i = 0; i <= 8; i++) {
+                    kod += '<tr>'
+                        for(let j = 0; j <= 8; j++) {
+                            let color = (i===0 || j === 0) ? '' :
+                                        (i + j) % 2 ? 'black' : 'white'
+                            let cell =  i === 0 ? abc[j] :
+                                        j === 0 ? i : 
+                                        (i === r && j === c) ? '♞' :
+                                        (Math.abs(i - r) == 1 && Math.abs(j - c) == 2 ||
+                                         Math.abs(i - r) == 2 && Math.abs(j - c) == 1 ) ? '*' : ''
+                            kod += `<td ${cell == '*' ? `onclick="go(${i},${j})"` : ''} class="${color}">${cell}</td>`
+                        }
+                    kod += '</tr>'
+                }
+                cdv.innerHTML = kod
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            #cdv { border-collapse: collapse;}
+            td { border: 1px solid #333; padding: 20px; }
+            #n { width: 30px;}
+        </style>
+    </head>
+    <body>
+        <input type="number" id="n" />
+        <button onclick="go()">Ok</button>
+        <table id="cdv"></table>
+
+        <script>
+            const n = document.getElementById("n")
+            const cdv = document.getElementById("cdv")
+
+            function go() {
+                let kod = ''
+                
+                for(let i = n.value; i >= 1; i--){
+                    kod += `<td>${i}</td>`
+                }
+                cdv.innerHTML = `<tr>${kod}</tr>`
+            }
+        </script>
+    </body>
+</html>

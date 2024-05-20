@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            body { text-align: center;}
+        </style>
+    </head>
+    <body>
+        <h1 id="msg">1-dən 100-ə kimi bir ədəd tutdum. Onu tap!</h1>
+        <input type="number" id="n" />
+        <button onclick="tap()">Ok</button>
+        
+        <script>
+            const msg = document.getElementById('msg')
+            const n = document.getElementById('n')
+            const x = rnd(1, 100)
+            let c = 1
+
+            function tap() {
+                let txt = "Cəhd: " + c++ + ". "
+                txt +=  (n.value > x) ? "Artıqdır. Bəxtini bir daha sına" :
+                        (n.value < x) ? "Əskikdir. Barıtını çox elə" : "Təbriklər ! Tapdın !"
+                msg.innerHTML = txt
+            }
+
+            function rnd(min, max) {
+                return Math.floor(Math.random() * (max - min + 1) ) + min;
+            }
+        </script>
+    </body>
+</html>

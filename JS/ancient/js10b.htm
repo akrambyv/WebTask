@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            ul { list-style: none; padding: 0}
+            li { width: 350px; display: flex; padding: 5px 10px;
+                justify-content: space-between; }
+        </style>
+    </head>
+    <body>
+        <input id="ad" type="text" />
+        <input id="sad" type="text" />
+        <button onclick="add()">+</button>
+
+        <ul></ul>
+
+        <script>
+            const ad = document.getElementById("ad")
+            const sad = document.getElementById("sad")
+            const ul = document.querySelector("ul")
+            const arr = []
+        
+            function add() {
+                arr.push(ad.value + ' ' + sad.value)
+                show()
+            }
+
+            function del(i) {
+                arr.splice(i, 1)
+                show()
+            }
+
+            function show() {
+                let kod  = ''
+                for (let i = 0; i < arr.length; i++) {
+                    kod +=  `<li>${arr[i]}<span><button onclick="del(${i})">x</button></span> </li>`
+                }
+                ul.innerHTML = kod
+            }
+        </script>
+    </body>
+</html>

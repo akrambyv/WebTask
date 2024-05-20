@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            ul { list-style: none; padding: 10px }
+        </style>
+    </head>
+    <body>
+        <select onchange="mult()" id="n"></select>
+        <ul id="cdv"></ul>
+
+        <script>
+            const n = document.getElementById("n")
+            const cdv = document.getElementById("cdv")
+            let kod = ''
+
+            for(let i = 1; i <= 9 ;i++) {
+                kod += `<option>${i}</option>`
+            }
+
+            n.innerHTML = kod
+
+            function mult() {
+                let kod = ''
+
+                for(let i = 2; i <= 9; i++) {
+                    kod += `<li> ${n.value} x ${i} = ${n.value * i} </li>`
+                }
+
+                cdv.innerHTML = kod
+            }
+        </script>
+    </body>
+</html>

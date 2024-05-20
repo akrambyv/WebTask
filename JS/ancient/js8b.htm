@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <span id="checks"></span>
+        <button id="btn"> = </button>
+        <span id="res"></span>
+
+        <script>
+            const checks = document.getElementById("checks")
+            const res = document.getElementById("res")
+            const btn = document.getElementById("btn")
+
+            for (let i = 0; i < 8; i++) {
+                checks.innerHTML += `<input type="checkbox" />`
+            }
+
+            btn.onclick = function() {
+                const box = checks.querySelectorAll("[type=checkbox]")
+                let bin = ''
+                let dec = 0
+   
+                for (let i = 0; i < 8; i++) {
+                    bin += (box[i].checked) ? '1' : '0'
+                    dec += (box[i].checked) ? 2 ** (7 - i) : 0
+                }
+                res.innerHTML = `${bin}<sub>2</sub> = ${dec}<sub>10</sub>`
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <input id="ad" type="text" placeholder="Adin nedir?" />
+        <button onclick="salamVer()">Ok</button>
+        <div id="msg"></div>
+
+        <script>
+            const ad = document.getElementById("ad");
+            const msg = document.getElementById("msg");
+
+            function salamVer() { 
+               msg.innerHTML = '<b>Salam, </b>' + ad.value;
+            }
+
+            // ad = prompt("Adin nedir?")
+            // alert('Salam, ' + ad)
+
+            // console.log('Salam, men Console !')
+            // document.write('Salam, Dunya !')
+            // window.alert('Salam')
+            /*
+            object = {
+                property: value,
+                method: function(argument)
+            }
+            object.property = value
+            object.method(argument)
+            */
+        </script>
+    </body>
+</html>

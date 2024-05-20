@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+    </head>
+    <body>
+        <input type="number" id="x"  />
+        <button onclick="teyinEt()">Ok</button>
+        <h1 id="ntc"></h1>
+
+        <script>
+            const x = document.getElementById("x")
+            const ntc = document.getElementById("ntc")
+
+            function teyinEt() {
+                ntc.innerHTML = (x.value > 0) ? 'Eded musbetdir' :
+                                (x.value == 0) ? 'Sifirdir' : 'Eded menfidir'
+                                
+                /*
+                if(x.value > 0) ntc.innerHTML = 'Eded musbetdir'
+                else if(x.value == 0) ntc.innerHTML = 'Sifirdir'
+                else ntc.innerHTML = 'Eded menfidir'
+                */
+            }
+        </script>
+    </body>
+</html>

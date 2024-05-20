@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <style>
+            * { box-sizing: border-box;}
+            body { display: flex; height: 100vh; }
+            #calculator { 
+                margin: auto;
+                padding: 30px;
+                border-radius: 20px;
+                box-shadow: 0 0 10px #333;
+            }
+            input, button { 
+                border: 1px solid #333; border-radius: 5px;
+                width: 50px; height: 40px; margin: 5px;
+                box-shadow: 2px 2px 2px #333;
+            }
+            button:active { box-shadow: 0 0 5px #333; }
+            input  { width: 240px; outline: none; padding: 0 20px;
+                text-align: right; box-shadow: 2px 2px 2px #333 inset;
+            } 
+            #eq { width: 115px; background: orange;}
+        </style>
+    </head>
+    <body>
+        <div id="calculator">
+            <div>
+                <input id="display" type="text" disabled="disabled" />
+            </div>
+            <div>
+                <button onclick="clean()">C</button>
+                <button><=</button>
+                <button>%</button>
+                <button onclick="show('/')">/</button>
+            </div>
+            <div>
+                <button onclick="show('7')">7</button>
+                <button onclick="show('8')">8</button>
+                <button onclick="show('9')">9</button>
+                <button onclick="show('*')">*</button>
+            </div>
+            <div>
+                <button onclick="show('4')">4</button>
+                <button onclick="show('5')">5</button>
+                <button onclick="show('6')">6</button>
+                <button onclick="show('-')">-</button>
+            </div>
+            <div>
+                <button onclick="show('1')">1</button>
+                <button onclick="show('2')">2</button>
+                <button onclick="show('3')">3</button>
+                <button onclick="show('+')">+</button>
+            </div>
+            <div>
+                <button onclick="show('.')">.</button>
+                <button onclick="show('0')">0</button>
+                <button onclick="calc()" id="eq"> = </button>
+            </div>
+        </div>
+
+        <script>
+            const display = document.getElementById("display")
+
+            function clean() {
+                display.value = ''
+            }
+
+            function calc() {
+                display.value = eval(display.value)
+            }
+
+            function show(x) {
+                display.value += x
+            }
+        </script>
+    </body>
+</html>

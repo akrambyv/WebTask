@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            main { text-align: center; }
+            ul { list-style: none;}
+            li { padding: 5px;}
+        </style>
+    </head>
+    <body>
+        <main>
+            <button onclick="add(1)">+</button>
+            <button onclick="add(-1)">-</button>
+            <ul></ul>
+            <button onclick="sum()">=</button>
+            <div id="res"></div>
+        </main>
+
+        <script>
+            const ul = document.querySelector("ul")
+            const res = document.getElementById("res")
+            let x = 2
+
+            add(0)
+
+            function add(delta) {
+                let kod = ''
+                x += delta
+                if (x < 2) x = 2
+                for (let i = 0; i < x; i++) {
+                    kod += `<li><input type="text"></li>`    
+                }
+                ul.innerHTML = kod
+            }
+
+            function sum() {
+                const elm = ul.querySelectorAll("input")
+                let sum = 0
+                for (let i = 0; i < elm.length; i++) {
+                    sum += +elm[i].value
+                }
+                res.innerHTML = sum
+            }
+        </script>
+    </body>
+</html>

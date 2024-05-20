@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        const mmc = [
+            {name: 'Ramile', sex: 'f', salary: 165, chld: [
+                {sex: 'f', year: 2018 },
+                {sex: 'f', year: 2020 },
+                {sex: 'm', year: 2023 }
+            
+            ] },
+            {name: 'Tukezban', sex: 'f', salary: 150, chld: [
+                {sex: 'f', year: 2018 },
+                {sex: 'f', year: 2020 },
+                {sex: 'm', year: 2022 },
+                {sex: 'm', year: 2023 },
+                {sex: 'm', year: 2024 }
+            
+            ] },
+            {name: 'Bulbul', sex: 'f', salary: 0, chld: [] },
+            {name: 'Ibrahim', sex: 'm', salary: 180, chld: [
+                {sex: 'f', year: 2023 },
+                {sex: 'm', year: 2024 }
+            ] },
+            {name: 'Ulvi', sex: 'm', salary: 230, chld: [
+                {sex: 'm', year: 2020 },
+                {sex: 'm', year: 2023 }
+            ] },
+            {name: 'Ali', sex: 'm', salary: 250, chld: [
+                {sex: 'f', year: 2020 },
+                {sex: 'f', year: 2022 },
+                {sex: 'm', year: 2024 }
+            ]  },
+            {name: 'Leman', sex: 'f', salary: 220, chld: [
+                {sex: 'm', year: 2021 }
+            ]  },
+            {name: 'Aysu', sex: 'f', salary: 200, chld: [
+                {sex: 'f', year: 2023 },
+                {sex: 'f', year: 2024 },
+            ]  }
+        ]
+
+        // console.log(mmc.reduce((sum, emp) => sum + emp.salary, 0));
+
+
+        /*
+        console.log(mmc.filter( item => item.sex == 'f')
+                       .reduce( (sum, emp, i, arr) => sum + emp.salary / arr.length, 0) );
+        */
+
+
+        console.log(
+            mmc.map( item => item.chld.filter( ch => ch.sex == 'f' && new Date().getFullYear() - ch.year <= 3 ).length )
+               .reduce((sum, n) => sum + n, 0)
+        );
+
+    </script>
+</body>
+</html>
